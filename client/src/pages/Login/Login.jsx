@@ -80,7 +80,10 @@ const Login = () => {
                 </label>
                 <label className="label">
                   <span>
-                    Don't Have An Account? <Link to={"/signup"}>Signup</Link>
+                    Don't Have An Account?{" "}
+                    <Link className="text-purple-500" to={"/signup"}>
+                      Signup
+                    </Link>
                   </span>
                 </label>
               </div>

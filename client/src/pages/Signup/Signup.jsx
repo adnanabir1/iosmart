@@ -145,7 +145,10 @@ const Signup = () => {
 
               <label className="label">
                 <span>
-                  Don't Have An Account? <Link to={"/login"}>Login</Link>
+                  Don't Have An Account?{" "}
+                  <Link className="text-purple-600" to={"/login"}>
+                    Login
+                  </Link>
                 </span>
               </label>
 
