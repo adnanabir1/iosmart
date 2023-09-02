@@ -26,7 +26,7 @@ const Login = () => {
         reset();
 
         swal("User LogedIn");
-        navigate(from, { replace: false });
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         swal(err.message);
