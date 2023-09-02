@@ -31,9 +31,9 @@ const GoogleAuth = () => {
                 toast("Loggedin Successfully");
               };
               notify();
-              navigate(from, { replace: true });
             }
           });
+        navigate(from, { replace: true });
       })
       .catch((err) => {
         const notify = () => {

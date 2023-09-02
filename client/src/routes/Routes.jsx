@@ -7,7 +7,12 @@ import Signup from "../pages/Signup/Signup";
 import Shop from "../pages/Shop/Shop";
 import MyCart from "../pages/MyCart/MyCart";
 import PrivateRoute from "./PrivateRoute";
-import Dashboard from "../pages/Dashboard/Dashboard";
+import Dashboard from "../layouts/Dashboard";
+import AdminPanel from "../pages/Dashboard/AdminPanel/AdminPanel";
+import AddProduct from "../pages/Dashboard/AddProduct/AddProduct";
+import ManageProducts from "../pages/Dashboard/ManageProducts/ManageProducts";
+import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -29,14 +34,7 @@ const router = createBrowserRouter([
         path: "/shop",
         element: <Shop />,
       },
-      {
-        path: "/dashboard",
-        element: (
-          <PrivateRoute>
-            <Dashboard />
-          </PrivateRoute>
-        ),
-      },
+
       {
         path: "/mycart",
         element: (
@@ -44,6 +42,32 @@ const router = createBrowserRouter([
             <MyCart />
           </PrivateRoute>
         ),
+      },
+    ],
+  },
+  {
+    path: "/dashboard",
+    element: (
+      <PrivateRoute>
+        <Dashboard />
+      </PrivateRoute>
+    ),
+    children: [
+      {
+        path: "",
+        element: <AdminPanel />,
+      },
+      {
+        path: "add-product",
+        element: <AddProduct />,
+      },
+      {
+        path: "manage-products",
+        element: <ManageProducts />,
+      },
+      {
+        path: "manage-users",
+        element: <ManageUsers />,
       },
     ],
   },
