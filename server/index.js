@@ -73,6 +73,7 @@ async function run() {
           pictureUrl: updateProductInfo.pictureUrl,
           ram: updateProductInfo.ram,
           rom: updateProductInfo.rom,
+          quantity: updateProductInfo.quantity,
           additionalInfo: updateProductInfo.additionalInfo,
         },
       };

@@ -21,6 +21,7 @@ const AddProduct = () => {
       ram: parseInt(data.ram),
       rom: parseInt(data.rom),
       battery: parseInt(data.battery),
+      quantity: parseInt(data.quantity),
       additionalInfo: data.additionalInfo,
     };
     fetch("http://localhost:5000/product", {
@@ -141,9 +142,25 @@ const AddProduct = () => {
                 <span className="label-text">Processor</span>
               </label>
               <input
+                {...register("processor", { required: true })}
                 type="text"
                 name="processor"
                 placeholder="Processor"
+                className="input input-bordered"
+              />
+              {errors.processor && (
+                <span className="text-red-500">Processor is required</span>
+              )}
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Available Quantity</span>
+              </label>
+              <input
+                {...register("quantity", { required: true })}
+                type="number"
+                name="quantity"
+                placeholder="Available Quantity"
                 className="input input-bordered"
               />
               {errors.processor && (

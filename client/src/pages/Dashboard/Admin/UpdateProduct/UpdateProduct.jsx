@@ -6,7 +6,6 @@ import swal from "sweetalert";
 
 const UpdateProduct = () => {
   const { id } = useParams();
-
   const {
     register,
     handleSubmit,
@@ -26,9 +25,10 @@ const UpdateProduct = () => {
     // console.log(data);
     const updateProductData = {
       pictureUrl: data.pictureUrl,
-      price: data.price,
-      ram: data.ram,
-      rom: data.rom,
+      price: parseFloat(data.price),
+      ram: parseInt(data.ram),
+      rom: parseInt(data.rom),
+      quantity: parseInt(data.quantity),
       additionalInfo: data.additionalInfo,
     };
     console.log(data);
@@ -109,6 +109,21 @@ const UpdateProduct = () => {
                 placeholder="ROM"
                 className="input input-bordered"
               />
+            </div>
+            <div className="form-control">
+              <label className="label">
+                <span className="label-text">Available Quantity</span>
+              </label>
+              <input
+                {...register("quantity", { required: true })}
+                type="number"
+                name="quantity"
+                placeholder="Available Quantity"
+                className="input input-bordered"
+              />
+              {errors.processor && (
+                <span className="text-red-500">Processor is required</span>
+              )}
             </div>
           </div>
           <div className="form-control mt-6">
