@@ -8,10 +8,11 @@ import Shop from "../pages/Shop/Shop";
 import MyCart from "../pages/MyCart/MyCart";
 import PrivateRoute from "./PrivateRoute";
 import Dashboard from "../layouts/Dashboard";
-import AdminPanel from "../pages/Dashboard/AdminPanel/AdminPanel";
-import AddProduct from "../pages/Dashboard/AddProduct/AddProduct";
-import ManageProducts from "../pages/Dashboard/ManageProducts/ManageProducts";
-import ManageUsers from "../pages/Dashboard/ManageUsers/ManageUsers";
+import AdminPanel from "../pages/Dashboard/Admin/AdminPanel/AdminPanel";
+import AddProduct from "../pages/Dashboard/Admin/AddProduct/AddProduct";
+import ManageProducts from "../pages/Dashboard/Admin/ManageProducts/ManageProducts";
+import ManageUsers from "../pages/Dashboard/Admin/ManageUsers/ManageUsers";
+import UpdateProduct from "../pages/Dashboard/Admin/UpdateProduct/UpdatePRoduct";
 
 const router = createBrowserRouter([
   {
@@ -64,6 +65,10 @@ const router = createBrowserRouter([
       {
         path: "manage-products",
         element: <ManageProducts />,
+      },
+      {
+        path: "manage-products/update/product/:id",
+        element: <UpdateProduct />,
       },
       {
         path: "manage-users",

@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { useForm } from "react-hook-form";
-import { AuthContext } from "../../../providers/AuthProvider";
+import { AuthContext } from "../../../../providers/AuthProvider";
 
 const AddProduct = () => {
   const { user } = useContext(AuthContext);
@@ -15,12 +15,12 @@ const AddProduct = () => {
     // console.log(data);
     const productData = {
       productName: data.productName,
-      prictueUrl: data.pictureUrl,
-      price: data.price,
+      pictureUrl: data.pictureUrl,
+      price: parseFloat(data.price),
       processor: data.processor,
-      ram: data.ram,
-      rom: data.rom,
-      battery: data.battery,
+      ram: parseInt(data.ram),
+      rom: parseInt(data.rom),
+      battery: parseInt(data.battery),
       additionalInfo: data.additionalInfo,
     };
     fetch("http://localhost:5000/product", {
@@ -95,7 +95,7 @@ const AddProduct = () => {
               </label>
               <input
                 {...register("ram", { required: true })}
-                type="text"
+                type="number"
                 name="ram"
                 placeholder="RAM"
                 className="input input-bordered"
@@ -111,7 +111,7 @@ const AddProduct = () => {
               </label>
               <input
                 {...register("rom", { required: true })}
-                type="text"
+                type="number"
                 name="rom"
                 placeholder="ROM"
                 className="input input-bordered"
@@ -127,7 +127,7 @@ const AddProduct = () => {
               </label>
               <input
                 {...register("battery", { required: true })}
-                type="text"
+                type="number"
                 name="battery"
                 placeholder="Available Quantity"
                 className="input input-bordered flex-grow-1"
@@ -162,9 +162,6 @@ const AddProduct = () => {
               placeholder="If Needed"
               className="input input-bordered pt-3"
             />
-            {errors.email && (
-              <span className="text-red-500">Email is required</span>
-            )}
           </div>
           <div className="form-control mt-10">
             <input
